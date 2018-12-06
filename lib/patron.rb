@@ -1,2 +1,5 @@
-require 'spec_helper'
- 
+class Patron
+
+
+
+end

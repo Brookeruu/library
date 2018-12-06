@@ -7,13 +7,17 @@ class Book
   end
 
   def self.all
-    returned_books = DB.exec('SELECT * FROM books;')
-      books = []
-      returned_books.each do |book|
-        title.fetch("title")
-        books.push(Book.new({:title => title}))
-    end
-    books
+    all_books = DB.exec('SELECT * FROM books;')
+      books_array = []
+      all_books.each do |book|
+        title = book.fetch("title")
+        books_array.push(Book.new({:title => title}))
+      end
+    books_array
+  end
+
+  def save
+    DB.exec("INSERT INTO books (title) VALUES ('#{@title}');")
   end
 
   def ==(another_book)

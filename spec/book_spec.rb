@@ -9,9 +9,9 @@ describe(Book) do
     end
   end
 
-  describe('.save') do
+  describe('#save') do
     it('add a book title to book array') do
-      book = Book.new({:title  =>"Hobbit"})
+      book = Book.new({:title => "Hobbit"})
       book.save
       expect(Book.all).to(eq([book]))
     end
